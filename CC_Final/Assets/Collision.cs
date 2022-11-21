@@ -3,6 +3,7 @@ using System;
  using System.Security.Cryptography;
  using UnityEngine;
  using UnityEngine.UI;
+ using UnityEngine.SceneManagement;
 
 
 public class Collision : MonoBehaviour
@@ -10,6 +11,9 @@ public class Collision : MonoBehaviour
 
     static int score = 0;
     public Text scoreText;
+
+    // To help with ending the game:
+    static int numKills;
 
 
     public GameObject student;
@@ -19,16 +23,27 @@ public class Collision : MonoBehaviour
     bool startTimer = false;
     static float time = 3;
 
+
+    // Scene swicther:
+    // public void MoveToScene(int sceneID);
+    // End game screen:
+    int endGamesceneID = 0;
+
+
+
+
     void Start() {
         crashedCar.SetActive(false);
+        numKills = 0;
 
         //text fields
         //scoreText.text = score.ToString() + " cows saved";
-        
 
     }
 
-    void Update() {
+    void Update() 
+    {
+        
         //  if (score <= 3) {
         //     //medical student
         //     endScoreText.text = "You only saved " + score.ToString() + " cows. \n Level: medical student";
@@ -50,18 +65,31 @@ public class Collision : MonoBehaviour
     }
  
     
-    void OnTriggerStay2D(Collider2D Collider) {
+    void OnTriggerStay2D(Collider2D Collider) 
+    {
        if (Collider.gameObject.tag == "Student") {
             //decrease score 
             student.SetActive(false);
             score = score - 3;
             scoreText.text = "Score: " + score.ToString();
+
+            // Increase the number of kills:
+            numKills = numKills + 1;
+
             car.SetActive(false);
             crashedCar.SetActive(true);
             startTimer = true;
             transform.position = new Vector3(0, -5, 0);
             carObject.SetActive(true);
             car.SetActive(true);
+
+
+            // End Game:
+            if (numKills > 1)
+            {
+                // Change to game end screen:
+                SceneManager.LoadScene(endGamesceneID);
+            }
        }
     }
 }

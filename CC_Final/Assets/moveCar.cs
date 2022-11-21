@@ -3,6 +3,8 @@ using System;
  using System.Security.Cryptography;
  using UnityEngine;
  using UnityEngine.UI;
+ using UnityEngine.SceneManagement;
+
 
 public class moveCar : MonoBehaviour {
 
@@ -10,6 +12,11 @@ public class moveCar : MonoBehaviour {
     static bool isMoving = false;
     static int score = 0;
     public Text scoreText;
+
+    // To help with ending the game:
+    static int numKills = 0;
+    // End game screen:
+    int endGamesceneID = 0;
 
     public GameObject student;
     public GameObject car;
@@ -26,8 +33,8 @@ public class moveCar : MonoBehaviour {
         crashedCar.SetActive(false);
     }
 
-    void Update(){
-
+    void Update()
+    {
         if(startTimer == true) {
             Debug.Log(true);
             time -= 1 * Time.deltaTime;
@@ -44,6 +51,10 @@ public class moveCar : MonoBehaviour {
         if (transform.position.y >= 9) {
                 score++;
                 scoreText.text = "Score: " + score.ToString();
+
+                // Update the number of kills:
+                numKills++;
+
                 transform.position = new Vector3(0, -5, 0);
                 isMoving = false;
         }
@@ -71,6 +82,13 @@ public class moveCar : MonoBehaviour {
             car.SetActive(true);
             isMoving = false;
             GetComponent<AudioSource>().Play();
+
+            // End Game:
+            if (numKills >= 7)
+            {
+                // Change to game end screen:
+                SceneManager.LoadScene(endGamesceneID);
+            }
        }
     }
       
