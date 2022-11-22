@@ -16,7 +16,7 @@ public class moveCar : MonoBehaviour {
     // To help with ending the game:
     static int numKills = 0;
     // End game screen:
-    int endGamesceneID = 0;
+    int endGamesceneID = 2;
 
     public GameObject student;
     public GameObject car;
@@ -67,6 +67,14 @@ public class moveCar : MonoBehaviour {
     public void setMoveTrue() {
     isMoving = true;
     }
+
+
+    public void resetScore()
+    {
+        score = 0;
+    }
+
+
 
     void OnTriggerStay2D(Collider2D Collider) {
        if (Collider.gameObject.tag == "Student") {
