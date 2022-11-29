@@ -9,9 +9,12 @@ using System;
 public class moveCar : MonoBehaviour {
 
     public float speed = 5f;
-    static bool isMoving = false;
+    bool isMoving = false;
     static int score = 0;
     public Text scoreText;
+    public float elapsedTime = 0;
+
+    public bool UpCar;
 
     // To help with ending the game:
     static int numKills = 0;
@@ -28,6 +31,7 @@ public class moveCar : MonoBehaviour {
 
 
     void Start() {
+        resetScore();
         GetComponent<AudioSource> ().clip = crash;
         scoreText.text = "Score: " + score.ToString();
         crashedCar.SetActive(false);
@@ -35,8 +39,8 @@ public class moveCar : MonoBehaviour {
 
     void Update()
     {
+        elapsedTime += 1 * Time.deltaTime;
         if(startTimer == true) {
-            Debug.Log(true);
             time -= 1 * Time.deltaTime;
             if(time <= 0) {
                 crashedCar.SetActive(false);
@@ -44,28 +48,44 @@ public class moveCar : MonoBehaviour {
                 time = 3;
             }
         }
-
+        
         if(isMoving) {
-            transform.position += Vector3.up * speed * Time.deltaTime;
+            if (UpCar) {
+                this.car.transform.position += Vector3.up * speed * Time.deltaTime;
+            }
+            else {
+                this.car.transform.position -= Vector3.up * speed * Time.deltaTime;
+            }
         }
-        if (transform.position.y >= 9) {
+
+        if (this.car.transform.position.y >= 9 && UpCar) {
                 score++;
                 scoreText.text = "Score: " + score.ToString();
 
                 // Update the number of kills:
-                numKills++;
+                
 
-                transform.position = new Vector3(0, -5, 0);
+                this.car.transform.position = new Vector3(3, -9, 0);
                 isMoving = false;
+        } else if (this.car.transform.position.y <= -9 && !UpCar) {
+            score++;
+            scoreText.text = "Score: " + score.ToString();
+
+            // Update the number of kills:
+
+            this.car.transform.position = new Vector3(-3, 9, 0);
+            isMoving = false;
         }
-        if(transform.position.y <= -3) {
-            transform.position += Vector3.up * speed * Time.deltaTime;
+        if(this.car.transform.position.y <= -4 && UpCar) {
+            this.car.transform.position += Vector3.up * speed * Time.deltaTime;
+        } else if (this.car.transform.position.y >= 4 && !UpCar) {
+            this.car.transform.position -= Vector3.up * speed * Time.deltaTime;
         }
 
     }
 
     public void setMoveTrue() {
-    isMoving = true;
+        this.isMoving = true;
     }
 
 
@@ -85,17 +105,24 @@ public class moveCar : MonoBehaviour {
             car.SetActive(false);
             crashedCar.SetActive(true);
             startTimer = true;
-            transform.position = new Vector3(0, -5, 0);
+            if (UpCar) {
+                this.car.transform.position = new Vector3(3, -9, 0);
+            }
+            else {
+                this.car.transform.position = new Vector3(-3, 9, 0);
+            }
+            
             carObject.SetActive(true);
             car.SetActive(true);
             isMoving = false;
             GetComponent<AudioSource>().Play();
-
+            Debug.Log(numKills);
+            numKills++;
             // End Game:
             if (numKills >= 7)
             {
                 // Change to game end screen:
-                SceneManager.LoadScene(endGamesceneID);
+                SceneManager.LoadScene(3);
             }
        }
     }

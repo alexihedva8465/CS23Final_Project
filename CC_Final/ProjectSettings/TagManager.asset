@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Student
+  - CarDown
+  - CarUp
   layers:
   - Default
   - TransparentFX
