@@ -6,8 +6,9 @@ using System;
 
 public class movePerson : MonoBehaviour {
 
-      static float speed;
+      public float speed;
       public GameObject student;
+      public string studentcolor;
 
       static int xPosition;
       static int yPosition;
@@ -17,7 +18,10 @@ public class movePerson : MonoBehaviour {
       public float waitingTime;
 
         void Start() {
-            speed = UnityEngine.Random.Range(4, 10);
+            if (student.GetComponent<SpriteRenderer>().color == Color.blue 
+                || student.GetComponent<SpriteRenderer>().color == Color.white) {
+                student.GetComponent<SpriteRenderer>().color = new Color (1, 1, 1, 0);
+            }
             xPosition = UnityEngine.Random.Range(-8, -9);
             yPosition = UnityEngine.Random.Range(-1, 2);
             waitingTime = (float)UnityEngine.Random.Range(4, 10);
@@ -37,7 +41,7 @@ public class movePerson : MonoBehaviour {
                 }
                 transform.position += Vector3.right * speed * Time.deltaTime;
         }
-        if (light.GetComponent<SpriteRenderer>().color == Color.red 
+        else if (light.GetComponent<SpriteRenderer>().color == Color.red 
             && student.GetComponent<SpriteRenderer>().color == Color.red
             && waitingTime <= 0) {
                 if (transform.position.x >= 10) {
@@ -46,24 +50,49 @@ public class movePerson : MonoBehaviour {
                 }
                 transform.position += Vector3.right * speed * Time.deltaTime;
         }
-        if (elapsedTime >= 20) {
+        else if (elapsedTime >= 30) {
             if (light.GetComponent<SpriteRenderer>().color == Color.green 
-            && student.GetComponent<SpriteRenderer>().color == Color.blue
+            && studentcolor == "blue"
             && waitingTime <= 0) {
+                student.GetComponent<SpriteRenderer>().color = new Color (0, 0, 1, 1);
+                student.SetActive(true);
                  if (transform.position.x >= 10) {
                     waitingTime = (float)UnityEngine.Random.Range(4, 10);
                     transform.position = new Vector3(-10, UnityEngine.Random.Range(-1, 2), 0);
                 }
                 transform.position += Vector3.right * speed * Time.deltaTime;
                 int check = UnityEngine.Random.Range(0, 2);
-                if (check >= 0 && check <= 1) {
-                    transform.position += Vector3.down * speed * Time.deltaTime;
+                transform.position += Vector3.right * speed * Time.deltaTime;
+                transform.position += Vector3.right * speed * Time.deltaTime;
+                transform.position += Vector3.right * speed * Time.deltaTime;
+                transform.position += Vector3.right * speed * Time.deltaTime;
+
+
+            }
+
+            if (studentcolor == "white"
+            && waitingTime <= 0) {
+                student.GetComponent<SpriteRenderer>().color = new Color (230, 230, 250, 1);
+                student.SetActive(true);
+                 if (transform.position.x >= 10) {
+                    waitingTime = (float)UnityEngine.Random.Range(4, 10);
+                    transform.position = new Vector3(-10, UnityEngine.Random.Range(-1, 2), 0);
                 }
-                else if (check >= 1 && check <= 2) {
-                    transform.position += Vector3.down * speed * Time.deltaTime;
-                } 
+                transform.position += Vector3.right * speed * Time.deltaTime;
+
+
             }
         }
+
+        else if ( waitingTime <= 0 && student.transform.position.x >= 0) {
+            
+            if (transform.position.x >= 10) {
+                waitingTime = (float)UnityEngine.Random.Range(4, 10);
+                transform.position = new Vector3(-10, UnityEngine.Random.Range(-1, 2), 0);
+            }
+            transform.position += Vector3.right * speed * Time.deltaTime;
+        }
+
         
 
         
