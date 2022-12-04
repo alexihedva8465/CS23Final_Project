@@ -99,7 +99,10 @@ public class moveCar : MonoBehaviour {
     void OnTriggerStay2D(Collider2D Collider) {
        if (Collider.gameObject.tag == "Student") {
             //decrease score 
-            student.SetActive(false);
+            Collider.gameObject.SetActive(false);
+            Collider.gameObject.transform.position = 
+                new Vector3(11, UnityEngine.Random.Range(-1, 2), 0);
+            Collider.gameObject.SetActive(true);
             score = score - 3;
             scoreText.text = "Score: " + score.ToString();
             car.SetActive(false);
