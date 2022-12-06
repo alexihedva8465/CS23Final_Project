@@ -85,9 +85,34 @@ public class moveCar : MonoBehaviour {
     }
 
     public void setMoveTrue() {
+        if (UpCar) {
+            this.car.transform.position -= Vector3.up * speed * Time.deltaTime;
+            this.car.transform.position -= Vector3.up * speed * Time.deltaTime;
+            this.car.transform.position -= Vector3.up * speed * Time.deltaTime;
+            this.car.transform.position -= Vector3.up * speed * Time.deltaTime;
+            this.car.transform.position -= Vector3.up * speed * Time.deltaTime;
+            this.car.transform.position -= Vector3.up * speed * Time.deltaTime;
+            this.car.transform.position -= Vector3.up * speed * Time.deltaTime;
+            this.car.transform.position -= Vector3.up * speed * Time.deltaTime;
+            this.car.transform.position -= Vector3.up * speed * Time.deltaTime;
+            this.car.transform.position -= Vector3.up * speed * Time.deltaTime;
+            this.car.transform.position -= Vector3.up * speed * Time.deltaTime;
+            this.car.transform.position -= Vector3.up * speed * Time.deltaTime;
+        } else {
+            this.car.transform.position += Vector3.up * speed * Time.deltaTime;
+            this.car.transform.position += Vector3.up * speed * Time.deltaTime;
+            this.car.transform.position += Vector3.up * speed * Time.deltaTime;
+            this.car.transform.position += Vector3.up * speed * Time.deltaTime;
+            this.car.transform.position += Vector3.up * speed * Time.deltaTime;
+            this.car.transform.position += Vector3.up * speed * Time.deltaTime;
+            this.car.transform.position += Vector3.up * speed * Time.deltaTime;
+            this.car.transform.position += Vector3.up * speed * Time.deltaTime;
+            this.car.transform.position += Vector3.up * speed * Time.deltaTime;
+            this.car.transform.position += Vector3.up * speed * Time.deltaTime;
+            this.car.transform.position += Vector3.up * speed * Time.deltaTime;
+        }
         this.isMoving = true;
     }
-
 
     public void resetScore()
     {

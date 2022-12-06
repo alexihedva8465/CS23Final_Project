@@ -21,9 +21,10 @@ public class movePerson : MonoBehaviour {
         void Start() {
             stopAnim();
             if (student.GetComponent<SpriteRenderer>().color == Color.blue 
-                || student.GetComponent<SpriteRenderer>().color == Color.white) {
+                || student.GetComponent<SpriteRenderer>().color == Color.white
+                || studentcolor == "orange") {
                 student.GetComponent<SpriteRenderer>().color = new Color (1, 1, 1, 0);
-            }
+            } 
             xPosition = UnityEngine.Random.Range(-8, -9);
             yPosition = UnityEngine.Random.Range(-1, 2);
             waitingTime = (float)UnityEngine.Random.Range(4, 10);
@@ -62,14 +63,13 @@ public class movePerson : MonoBehaviour {
                 }
         }
         else if (elapsedTime >= 30) {
-            if (light.GetComponent<SpriteRenderer>().color == Color.green 
-            && studentcolor == "blue"
+            if (studentcolor == "blue"
             && waitingTime <= 0) {
                 student.GetComponent<SpriteRenderer>().color = new Color (0, 0, 1, 1);
                 student.SetActive(true);
                  if (transform.position.x >= 10) {
                     stopAnim();
-                    waitingTime = (float)UnityEngine.Random.Range(4, 10);
+                    waitingTime = (float)UnityEngine.Random.Range(7, 10);
                     transform.position = new Vector3(-10, UnityEngine.Random.Range(-1, 2), 0);
                 } else {
                     startAnim();
@@ -97,6 +97,11 @@ public class movePerson : MonoBehaviour {
                     }
                 }
             }
+            if (elapsedTime >= 80) {
+                if (studentcolor == "orange") {
+                     student.GetComponent<SpriteRenderer>().color = new Color (255, 236, 0, 1);
+                }
+            }
         }
 
         else if ( waitingTime <= 0 && student.transform.position.x >= -2 
@@ -105,7 +110,7 @@ public class movePerson : MonoBehaviour {
                     if (transform.position.x >= 10) {
                         waitingTime = (float)UnityEngine.Random.Range(4, 10);
                         transform.position = new Vector3(-10, UnityEngine.Random.Range(-1, 2), 0);
-                    } else {
+                    } else if(studentcolor != "orange") {
                         startAnim();
                         transform.position += Vector3.right * speed * Time.deltaTime;
                     }
