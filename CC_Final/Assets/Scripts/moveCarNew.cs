@@ -7,34 +7,29 @@ using System;
 
 
 public class moveCarNew : MonoBehaviour {
+    private GameHandler gameHandler; 
 
     public float speed = 5f;
     bool isMoving = false;
-    // static int score = 0;
-    // public Text scoreText;
-    // public float elapsedTime = 0;
 
     public bool UpCar;
 
-    // To help with ending the game:
-    // static int numKills = 0;
-    // End game screen:
-    // int endGamesceneID = 2;
-
-    // public GameObject student;
-    // public GameObject car;
-    //public GameObject crashedCar; //car art  busted
-    public GameObject carObject; //car art normal
+    public GameObject carObject; 
+    public GameObject angryFace; 
     public AudioSource crash; 
-    //bool startTimer = false;
-    public float timeFrustration = 3f; // time until car goes anyway
+    public float timeFrustration; 
 
 
     void Start() {
-        //resetScore();
+        angryFace.SetActive(false);
+        gameHandler = GameObject.FindWithTag("GameHandler").GetComponent<GameHandler>();
         //GetComponent<AudioSource> ().clip = crash;
-        //scoreText.text = "Score: " + score.ToString();
-        //crashedCar.SetActive(false);
+        gameHandler.updateStatsDisplay();
+        if(UpCar) {
+            timeFrustration = 20f;
+        } else {
+            timeFrustration = 15f;
+        }
     }
 
     void OnMouseOver(){
@@ -44,15 +39,19 @@ public class moveCarNew : MonoBehaviour {
     }
 
     void FixedUpdate(){
-        //elapsedTime += 1 * Time.deltaTime;
-        //if(startTimer == true) {
-        //    timeFrustration -= 1 * Time.deltaTime;
-         //   if(timeFrustration <= 0) {
-                //crashedCar.SetActive(false);
-         //       startTimer = false;
-          //      timeFrustration = 3;
-          //  }
-        //}
+        Debug.Log(timeFrustration);
+        if(timeFrustration <= 3) {
+            angryFace.SetActive(true);
+            carObject.GetComponent<SpriteRenderer>().color = Color.red;
+             if(timeFrustration <= 0) {
+                setMoveTrue();
+                angryFace.SetActive(false);
+                timeFrustration = 20f;
+                carObject.GetComponent<SpriteRenderer>().color = Color.white;
+            }
+        }
+        timeFrustration -= 1 * Time.deltaTime;
+        //TODO: frustration time
         
         if(isMoving) {
             if (UpCar) {
@@ -64,23 +63,15 @@ public class moveCarNew : MonoBehaviour {
         }
 
         if (transform.position.y >= 9 && UpCar) {
-                //score++;
-                //scoreText.text = "Score: " + score.ToString();
-
-                // Update the number of kills:
-                
-
+                gameHandler.AddScore(1);
                 transform.position = new Vector3(3, -9, 0);
                 isMoving = false;
         } else if (transform.position.y <= -9 && !UpCar) {
-            //score++;
-            //scoreText.text = "Score: " + score.ToString();
-
-            // Update the number of kills:
-
+            gameHandler.AddScore(1);
             transform.position = new Vector3(-3, 9, 0);
             isMoving = false;
         }
+
         if(transform.position.y <= -4 && UpCar) {
             transform.position += Vector3.up * speed * Time.deltaTime;
         } else if (transform.position.y >= 4 && !UpCar) {
@@ -119,25 +110,16 @@ public class moveCarNew : MonoBehaviour {
         this.isMoving = true;
     }
 
-    //public void resetScore()
-    //{
-    //    score = 0;
-    //}
-
-
-
     void OnTriggerEnter2D(Collider2D Collider) {
        if (Collider.gameObject.tag == "Student") {
-            //decrease score 
+       
             Collider.gameObject.SetActive(false);
             Collider.gameObject.transform.position = 
                 new Vector3(11, UnityEngine.Random.Range(-1, 2), 0);
             Collider.gameObject.SetActive(true);
-            //score = score - 3;
-            //scoreText.text = "Score: " + score.ToString();
-            //carObject.SetActive(false);
-            //crashedCar.SetActive(true);
-            //startTimer = true;
+
+            gameHandler.DecreaseScore(3);
+
             if (UpCar) {
                 transform.position = new Vector3(3, -9, 0);
             }
@@ -148,14 +130,7 @@ public class moveCarNew : MonoBehaviour {
             carObject.SetActive(true);
             isMoving = false;
             GetComponent<AudioSource>().Play();
-            //Debug.Log(numKills);
-            //numKills++;
-            // End Game:
-            //if (numKills >= 7)
-            //{
-                // Change to game end screen:
-            //    SceneManager.LoadScene(3);
-            //}
+            gameHandler.increaseKills();
        }
     }
       

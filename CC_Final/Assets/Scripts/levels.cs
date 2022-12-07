@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class levels : MonoBehaviour
 {
+    private GameHandler gameHandler; 
     public GameObject level1;
     public GameObject level2;
     public GameObject level3;
@@ -15,6 +16,7 @@ public class levels : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gameHandler = GameObject.FindWithTag("GameHandler").GetComponent<GameHandler>();
         level1.SetActive(false);
         level2.SetActive(false);
         level3.SetActive(false);
@@ -25,7 +27,7 @@ public class levels : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        elapsedTime += 1 * Time.deltaTime;
+        elapsedTime = gameHandler.elapsedTime;
 
         if (elapsedTime >= 0 && elapsedTime <= 3) {
             level1.SetActive(true);
