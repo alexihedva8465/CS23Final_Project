@@ -20,6 +20,9 @@ public class movePerson : MonoBehaviour {
 
         void Start() {
             stopAnim();
+            if (studentcolor == "orange") {
+                startAnim();
+            }
             if (student.GetComponent<SpriteRenderer>().color == Color.blue 
                 || student.GetComponent<SpriteRenderer>().color == Color.white
                 || studentcolor == "orange") {
@@ -62,7 +65,7 @@ public class movePerson : MonoBehaviour {
                     transform.position += Vector3.right * speed * Time.deltaTime;
                 }
         }
-        else if (elapsedTime >= 30) {
+        else if (elapsedTime >= 10) {
             if (studentcolor == "blue"
             && waitingTime <= 0) {
                 student.GetComponent<SpriteRenderer>().color = new Color (0, 0, 1, 1);
@@ -81,7 +84,7 @@ public class movePerson : MonoBehaviour {
                     transform.position += Vector3.right * speed * Time.deltaTime;
                 }
             }
-            if (elapsedTime >= 50) {
+            if (elapsedTime >= 10) {
                 if (studentcolor == "white"
                 && waitingTime <= 0) {
                     student.GetComponent<SpriteRenderer>().color = new Color (230, 230, 250, 1);
@@ -91,14 +94,14 @@ public class movePerson : MonoBehaviour {
                         waitingTime = (float)UnityEngine.Random.Range(4, 10);
                         transform.position = new Vector3(-10, UnityEngine.Random.Range(-1, 2), 0);
                     } else {
-                        Debug.Log("here");
                         startAnim();
                         transform.position += Vector3.right * speed * Time.deltaTime;
                     }
                 }
             }
-            if (elapsedTime >= 80) {
+            if (elapsedTime >= 10) {
                 if (studentcolor == "orange") {
+                    startAnim();
                      student.GetComponent<SpriteRenderer>().color = new Color (255, 236, 0, 1);
                 }
             }
@@ -113,6 +116,8 @@ public class movePerson : MonoBehaviour {
                     } else if(studentcolor != "orange") {
                         startAnim();
                         transform.position += Vector3.right * speed * Time.deltaTime;
+                    } else {
+                        startAnim();
                     }
                     
         }

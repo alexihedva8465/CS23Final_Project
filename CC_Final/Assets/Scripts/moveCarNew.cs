@@ -15,13 +15,11 @@ public class moveCarNew : MonoBehaviour {
     public bool UpCar;
 
     public GameObject carObject; 
-    public GameObject angryFace; 
     public AudioSource crash; 
     public float timeFrustration; 
 
 
     void Start() {
-        angryFace.SetActive(false);
         gameHandler = GameObject.FindWithTag("GameHandler").GetComponent<GameHandler>();
         //GetComponent<AudioSource> ().clip = crash;
         gameHandler.updateStatsDisplay();
@@ -39,13 +37,11 @@ public class moveCarNew : MonoBehaviour {
     }
 
     void FixedUpdate(){
-        Debug.Log(timeFrustration);
-        if(timeFrustration <= 3) {
-            angryFace.SetActive(true);
+        if(timeFrustration <= 5) {
+             transform.position += Vector3.up * 0.1f * Time.deltaTime;
             carObject.GetComponent<SpriteRenderer>().color = Color.red;
              if(timeFrustration <= 0) {
                 setMoveTrue();
-                angryFace.SetActive(false);
                 timeFrustration = 20f;
                 carObject.GetComponent<SpriteRenderer>().color = Color.white;
             }
