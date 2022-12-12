@@ -34,15 +34,15 @@ public class levels : MonoBehaviour
         } else {
             level1.SetActive(false);
            
-            if (elapsedTime >= 30 && elapsedTime <= 33) {
+            if (elapsedTime >= 20 && elapsedTime <= 23) {
                 level2.SetActive(true);
             } else {
                 level2.SetActive(false);
-                if (elapsedTime >= 50 && elapsedTime <= 53) {
+                if (elapsedTime >= 40 && elapsedTime <= 43) {
                     level3.SetActive(true);
                 } else {
                     level3.SetActive(false);
-                    if (elapsedTime >= 80 && elapsedTime <= 83) {
+                    if (elapsedTime >= 60 && elapsedTime <= 63) {
                         level4.SetActive(true);
                     } else {
                         level4.SetActive(false);

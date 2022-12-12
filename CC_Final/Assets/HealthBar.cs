@@ -12,7 +12,7 @@ public class HealthBar : MonoBehaviour {
       public Color unhealthyColor = new Color(0.8f, 0.3f, 0.3f);
 
        private GameHandler GameHandler; 
-       int[] times = {10, 20, 20, 30};
+       int time = 20;
        int counter;
 
 
@@ -22,14 +22,14 @@ public class HealthBar : MonoBehaviour {
 
       }
 
-      void Update() {
-            //Debug.Log("mod" + GameHandler.elapsedTime % times[counter]);
+      void FixedUpdate() {
+            //Debug.Log("mod" + GameHandler.elapsedTime % time);
             //Debug.Log("counter" + counter);
-            healthBar.fillAmount = (GameHandler.elapsedTime % times[counter]) / times[counter];
+            healthBar.fillAmount = (GameHandler.elapsedTime % time) / time;
 
             //turn red at low health:
             if (GameHandler.elapsedTime < 0.3f){
-                  if (GameHandler.elapsedTime == times[counter]){
+                  if (GameHandler.elapsedTime == time){
                         SetColor(Color.white);
                   }
                   else {
@@ -38,12 +38,6 @@ public class HealthBar : MonoBehaviour {
             }
             else {
                   SetColor(healthyColor);
-            }
-
-            if(GameHandler.elapsedTime % times[counter] == 0) {
-                  counter += 1;
-                  Debug.Log("hello");
-                  healthBar.fillAmount = 0;
             }
       }
 

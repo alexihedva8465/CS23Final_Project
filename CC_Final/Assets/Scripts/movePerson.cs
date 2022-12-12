@@ -65,7 +65,7 @@ public class movePerson : MonoBehaviour {
                     transform.position += Vector3.right * speed * Time.deltaTime;
                 }
         }
-        else if (elapsedTime >= 10) {
+        else if (elapsedTime >= 20) {
             if (studentcolor == "blue"
             && waitingTime <= 0) {
                 student.GetComponent<SpriteRenderer>().color = new Color (0, 0, 1, 1);
@@ -84,7 +84,7 @@ public class movePerson : MonoBehaviour {
                     transform.position += Vector3.right * speed * Time.deltaTime;
                 }
             }
-            if (elapsedTime >= 10) {
+            if (elapsedTime >= 40) {
                 if (studentcolor == "white"
                 && waitingTime <= 0) {
                     student.GetComponent<SpriteRenderer>().color = new Color (230, 230, 250, 1);
@@ -99,7 +99,7 @@ public class movePerson : MonoBehaviour {
                     }
                 }
             }
-            if (elapsedTime >= 10) {
+            if (elapsedTime >= 60) {
                 if (studentcolor == "orange") {
                     startAnim();
                      student.GetComponent<SpriteRenderer>().color = new Color (255, 236, 0, 1);
