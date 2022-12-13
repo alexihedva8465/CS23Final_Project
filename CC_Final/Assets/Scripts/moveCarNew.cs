@@ -37,13 +37,17 @@ public class moveCarNew : MonoBehaviour {
     }
 
     void FixedUpdate(){
-        if(timeFrustration <= 5) {
+        if(timeFrustration <= 8) {
              transform.position += Vector3.up * 0.1f * Time.deltaTime;
-            carObject.GetComponent<SpriteRenderer>().color = Color.red;
-             if(timeFrustration <= 0) {
-                setMoveTrue();
-                timeFrustration = 20f;
-                carObject.GetComponent<SpriteRenderer>().color = Color.white;
+            carObject.GetComponent<SpriteRenderer>().color = Color.yellow;
+            if(timeFrustration <= 3) {
+                transform.position += Vector3.up * 0.1f * Time.deltaTime;
+                carObject.GetComponent<SpriteRenderer>().color = Color.red;
+                if(timeFrustration <= 0) {
+                    setMoveTrue();
+                    timeFrustration = 20f;
+                    carObject.GetComponent<SpriteRenderer>().color = Color.white;
+                }
             }
         }
         timeFrustration -= 1 * Time.deltaTime;

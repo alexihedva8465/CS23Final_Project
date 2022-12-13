@@ -1644,11 +1644,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3196393317362842245, guid: 325f24692406a43e790f0ff794f7e850, type: 3}
       propertyPath: m_Size.y
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3196393317362842245, guid: 325f24692406a43e790f0ff794f7e850, type: 3}
       propertyPath: m_Offset.y
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4111324495825982211, guid: 325f24692406a43e790f0ff794f7e850, type: 3}
       propertyPath: m_Name
@@ -2281,11 +2281,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3196393317362842245, guid: 325f24692406a43e790f0ff794f7e850, type: 3}
       propertyPath: m_Size.y
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3196393317362842245, guid: 325f24692406a43e790f0ff794f7e850, type: 3}
       propertyPath: m_Offset.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6373890030804545984, guid: 325f24692406a43e790f0ff794f7e850, type: 3}
       propertyPath: UpCar
