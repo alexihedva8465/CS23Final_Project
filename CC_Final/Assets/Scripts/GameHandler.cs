@@ -48,7 +48,7 @@ public class GameHandler : MonoBehaviour {
       }
 
       public void StartGame() {
-            SceneManager.LoadScene("CrosswalkScene");
+            SceneManager.LoadScene("StoryScene");
       }
 
       public void RestartGame() {

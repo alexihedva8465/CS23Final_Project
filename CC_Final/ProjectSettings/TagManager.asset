@@ -40,8 +40,11 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - Logo
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Logo
+    uniqueID: 1524308535
     locked: 0
