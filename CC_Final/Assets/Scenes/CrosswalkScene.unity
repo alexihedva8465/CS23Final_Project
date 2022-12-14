@@ -1013,7 +1013,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 786afffb6cfa24024bf523e3cc0d69d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 8
+  speed: 6
   student: {fileID: 1073688086}
   studentcolor: blue
   anim: {fileID: 1073688092}
@@ -1655,11 +1655,32 @@ PrefabInstance:
       value: graycar
       objectReference: {fileID: 0}
     - target: {fileID: 6373890030804545984, guid: 325f24692406a43e790f0ff794f7e850, type: 3}
+      propertyPath: num1
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6373890030804545984, guid: 325f24692406a43e790f0ff794f7e850, type: 3}
+      propertyPath: num2
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6373890030804545984, guid: 325f24692406a43e790f0ff794f7e850, type: 3}
+      propertyPath: num3
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6373890030804545984, guid: 325f24692406a43e790f0ff794f7e850, type: 3}
       propertyPath: angryFace
       value: 
+      objectReference: {fileID: 1590769902}
+    - target: {fileID: 6373890030804545984, guid: 325f24692406a43e790f0ff794f7e850, type: 3}
+      propertyPath: timeFrustration
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 325f24692406a43e790f0ff794f7e850, type: 3}
+--- !u!1 &1590769902 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6676906529025056305, guid: 325f24692406a43e790f0ff794f7e850, type: 3}
+  m_PrefabInstance: {fileID: 1590769901}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1598455734
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2284,7 +2305,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4316990026415999510, guid: fc86ef61c2152409c80b413cba81b376, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5684249477081960929, guid: fc86ef61c2152409c80b413cba81b376, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -2373,12 +2394,33 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6373890030804545984, guid: 325f24692406a43e790f0ff794f7e850, type: 3}
+      propertyPath: num1
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6373890030804545984, guid: 325f24692406a43e790f0ff794f7e850, type: 3}
+      propertyPath: num2
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6373890030804545984, guid: 325f24692406a43e790f0ff794f7e850, type: 3}
+      propertyPath: num3
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6373890030804545984, guid: 325f24692406a43e790f0ff794f7e850, type: 3}
       propertyPath: UpCar
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6373890030804545984, guid: 325f24692406a43e790f0ff794f7e850, type: 3}
       propertyPath: angryFace
       value: 
+      objectReference: {fileID: 5696900367888066183}
+    - target: {fileID: 6373890030804545984, guid: 325f24692406a43e790f0ff794f7e850, type: 3}
+      propertyPath: timeFrustration
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 325f24692406a43e790f0ff794f7e850, type: 3}
+--- !u!1 &5696900367888066183 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6676906529025056305, guid: 325f24692406a43e790f0ff794f7e850, type: 3}
+  m_PrefabInstance: {fileID: 5696900367888066182}
+  m_PrefabAsset: {fileID: 0}

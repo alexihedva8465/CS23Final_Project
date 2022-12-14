@@ -16,36 +16,40 @@ public class moveCarNew : MonoBehaviour {
 
     public GameObject carObject; 
     public AudioSource crash; 
-    public float timeFrustration; 
+    float timeFrustration; 
+    public GameObject angryFace;
 
 
     void Start() {
         gameHandler = GameObject.FindWithTag("GameHandler").GetComponent<GameHandler>();
         //GetComponent<AudioSource> ().clip = crash;
         gameHandler.updateStatsDisplay();
-        if(UpCar) {
-            timeFrustration = 20f;
-        } else {
-            timeFrustration = 15f;
-        }
+        angryFace.SetActive(false);
+        timeFrustration = UnityEngine.Random.Range(15, 20);
     }
 
     void OnMouseOver(){
         if (Input.GetMouseButtonDown (0)) {
             setMoveTrue();
+            timeFrustration = UnityEngine.Random.Range(15, 20);
+            carObject.GetComponent<SpriteRenderer>().color = Color.white;
+            angryFace.SetActive(false);
         }
     }
 
     void FixedUpdate(){
+        Debug.Log(timeFrustration);
         if(timeFrustration <= 8) {
              transform.position += Vector3.up * 0.1f * Time.deltaTime;
             carObject.GetComponent<SpriteRenderer>().color = Color.yellow;
             if(timeFrustration <= 3) {
+                angryFace.SetActive(true);
                 transform.position += Vector3.up * 0.1f * Time.deltaTime;
                 carObject.GetComponent<SpriteRenderer>().color = Color.red;
                 if(timeFrustration <= 0) {
+                    angryFace.SetActive(false);
                     setMoveTrue();
-                    timeFrustration = 20f;
+                    timeFrustration = UnityEngine.Random.Range(15, 20);
                     carObject.GetComponent<SpriteRenderer>().color = Color.white;
                 }
             }
@@ -118,7 +122,7 @@ public class moveCarNew : MonoBehaviour {
                 new Vector3(11, UnityEngine.Random.Range(-1, 2), 0);
             Collider.gameObject.SetActive(true);
 
-            gameHandler.DecreaseScore(3);
+            gameHandler.DecreaseScore(1);
 
             if (UpCar) {
                 transform.position = new Vector3(3, -9, 0);
