@@ -1626,6 +1626,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Car (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2536694699238161345, guid: 325f24692406a43e790f0ff794f7e850, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3020718656201881704, guid: 325f24692406a43e790f0ff794f7e850, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -2135,6 +2139,14 @@ PrefabInstance:
       propertyPath: scoreText
       value: 
       objectReference: {fileID: 575482116}
+    - target: {fileID: 438967980486353481, guid: fc86ef61c2152409c80b413cba81b376, type: 3}
+      propertyPath: rewardObject
+      value: 
+      objectReference: {fileID: 4316990026285991276}
+    - target: {fileID: 742507690041770624, guid: fc86ef61c2152409c80b413cba81b376, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2262705756268520415, guid: fc86ef61c2152409c80b413cba81b376, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -2178,6 +2190,18 @@ PrefabInstance:
     - target: {fileID: 2262705756268520415, guid: fc86ef61c2152409c80b413cba81b376, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3545201674119585914, guid: fc86ef61c2152409c80b413cba81b376, type: 3}
+      propertyPath: m_RootOrder
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3545201674119585914, guid: fc86ef61c2152409c80b413cba81b376, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 3545201674119585914, guid: fc86ef61c2152409c80b413cba81b376, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 3554850733397934243, guid: fc86ef61c2152409c80b413cba81b376, type: 3}
       propertyPath: m_Name
@@ -2307,9 +2331,85 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 4859764372561989152, guid: fc86ef61c2152409c80b413cba81b376, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4859764372561989152, guid: fc86ef61c2152409c80b413cba81b376, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 4859764372561989152, guid: fc86ef61c2152409c80b413cba81b376, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 4859764372561989152, guid: fc86ef61c2152409c80b413cba81b376, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4859764372561989152, guid: fc86ef61c2152409c80b413cba81b376, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5679668322700227275, guid: fc86ef61c2152409c80b413cba81b376, type: 3}
+      propertyPath: m_Text
+      value: 'You got 0 cars across! Keep going! '
+      objectReference: {fileID: 0}
+    - target: {fileID: 5679668322700227275, guid: fc86ef61c2152409c80b413cba81b376, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5679668322700227275, guid: fc86ef61c2152409c80b413cba81b376, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5679668322700227275, guid: fc86ef61c2152409c80b413cba81b376, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5679668322700227275, guid: fc86ef61c2152409c80b413cba81b376, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 5c7f662aeefae42e6987c2564bcbee2c, type: 3}
+    - target: {fileID: 5679668322700227275, guid: fc86ef61c2152409c80b413cba81b376, type: 3}
+      propertyPath: m_FontData.m_MaxSize
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 5679668322700227275, guid: fc86ef61c2152409c80b413cba81b376, type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5679668322700227275, guid: fc86ef61c2152409c80b413cba81b376, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 5679668322700227275, guid: fc86ef61c2152409c80b413cba81b376, type: 3}
+      propertyPath: m_FontData.m_FontStyle
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5684249477081960929, guid: fc86ef61c2152409c80b413cba81b376, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -478
+      objectReference: {fileID: 0}
+    - target: {fileID: 8204820903374362642, guid: fc86ef61c2152409c80b413cba81b376, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 542b1a57950a24bc495c125505100a60, type: 3}
+    - target: {fileID: 8204820903374362642, guid: fc86ef61c2152409c80b413cba81b376, type: 3}
+      propertyPath: m_Color.a
+      value: 0.98039216
+      objectReference: {fileID: 0}
+    - target: {fileID: 8204820903374362642, guid: fc86ef61c2152409c80b413cba81b376, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8204820903374362642, guid: fc86ef61c2152409c80b413cba81b376, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8204820903374362642, guid: fc86ef61c2152409c80b413cba81b376, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc86ef61c2152409c80b413cba81b376, type: 3}
@@ -2330,6 +2430,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f3820e054019de4aaeab8960b03362f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &4316990026285991276 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5466706681973401505, guid: fc86ef61c2152409c80b413cba81b376, type: 3}
+  m_PrefabInstance: {fileID: 4316990026285991273}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5696900367888066182
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2384,6 +2489,10 @@ PrefabInstance:
     - target: {fileID: 2338238806696647993, guid: 325f24692406a43e790f0ff794f7e850, type: 3}
       propertyPath: m_Name
       value: Car
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536694699238161345, guid: 325f24692406a43e790f0ff794f7e850, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3196393317362842245, guid: 325f24692406a43e790f0ff794f7e850, type: 3}
       propertyPath: m_Size.y

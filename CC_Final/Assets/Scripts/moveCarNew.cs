@@ -20,6 +20,7 @@ public class moveCarNew : MonoBehaviour {
     public GameObject angryFace;
 
 
+
     void Start() {
         gameHandler = GameObject.FindWithTag("GameHandler").GetComponent<GameHandler>();
         //GetComponent<AudioSource> ().clip = crash;
@@ -38,7 +39,6 @@ public class moveCarNew : MonoBehaviour {
     }
 
     void FixedUpdate(){
-        Debug.Log(timeFrustration);
         if(timeFrustration <= 8) {
              transform.position += Vector3.up * 0.1f * Time.deltaTime;
             carObject.GetComponent<SpriteRenderer>().color = Color.yellow;
