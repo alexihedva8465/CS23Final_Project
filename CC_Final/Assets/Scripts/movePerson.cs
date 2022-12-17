@@ -23,8 +23,8 @@ public class movePerson : MonoBehaviour {
             if (studentcolor == "orange") {
                 startAnim();
             }
-            if (student.GetComponent<SpriteRenderer>().color == Color.blue 
-                || student.GetComponent<SpriteRenderer>().color == Color.white
+            if (studentcolor == "blue"
+                || studentcolor == "white"
                 || studentcolor == "orange") {
                 student.GetComponent<SpriteRenderer>().color = new Color (1, 1, 1, 0);
             } 
@@ -39,7 +39,7 @@ public class movePerson : MonoBehaviour {
       waitingTime -= 1 * Time.deltaTime;
       elapsedTime += 1 * Time.deltaTime;
         if (light.GetComponent<SpriteRenderer>().color == Color.green 
-            && student.GetComponent<SpriteRenderer>().color == Color.green
+            && studentcolor == "green"
             && waitingTime <= 0) {
                 stopAnim();
                 if (transform.position.x >= 10) {
@@ -54,7 +54,7 @@ public class movePerson : MonoBehaviour {
                 
         }
         else if (light.GetComponent<SpriteRenderer>().color == Color.red 
-            && student.GetComponent<SpriteRenderer>().color == Color.red
+            && studentcolor == "red"
             && waitingTime <= 0) {
                 if (transform.position.x >= 10) {
                     stopAnim();

@@ -24,14 +24,14 @@ public class GameHandler : MonoBehaviour {
       }
 
       void FixedUpdate() {
-        elapsedTime += 1 * Time.deltaTime;
-        if (rewardTextActive) {
-             rewardTimer += 1 * Time.deltaTime;
-             if (rewardTimer >= 3) {
-                  rewardTextActive = false;
-                  rewardObject.SetActive(false);
-             }
-        }
+            elapsedTime += 1 * Time.deltaTime;
+            if (rewardTextActive) {
+                  rewardTimer += 1 * Time.deltaTime;
+                  if (rewardTimer >= 3) {
+                        rewardTextActive = false;
+                        rewardObject.SetActive(false);
+                  }
+            }
       }
 
       public void AddScore(int newscore){
@@ -62,7 +62,7 @@ public class GameHandler : MonoBehaviour {
             scoreTextTemp.text = "SCORE: " + gotscore;
 
             Text rewardTextTemp = rewardText.GetComponent<Text>();
-            rewardTextTemp.text = "You Got" + carsAcross + "cars across safely! Keep going!";
+            rewardTextTemp.text = "YOU GOT " + carsAcross + " CARS ACROSS SAFELY! KEEP GOING!";
       }
 
       public void killsOverflow(){
