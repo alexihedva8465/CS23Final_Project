@@ -13,18 +13,17 @@ public class HealthBar : MonoBehaviour {
 
        private GameHandler GameHandler; 
        int time = 20;
-       int counter;
+
 
 
       private void Start () {
             GameHandler = GameObject.FindWithTag("GameHandler").GetComponent<GameHandler>();
-            counter = 0;
+
 
       }
 
       void FixedUpdate() {
-            //Debug.Log("mod" + GameHandler.elapsedTime % time);
-            //Debug.Log("counter" + counter);
+
             healthBar.fillAmount = (GameHandler.elapsedTime % time) / time;
 
             //turn red at low health:

@@ -536,7 +536,6 @@ MonoBehaviour:
   student: {fileID: 883214648}
   studentcolor: green
   anim: {fileID: 883214654}
-  elapsedTime: 0
   light: {fileID: 1497546648}
   waitingTime: 0
 --- !u!95 &883214654
@@ -710,7 +709,6 @@ MonoBehaviour:
   student: {fileID: 1073688086}
   studentcolor: blue
   anim: {fileID: 1073688092}
-  elapsedTime: 0
   light: {fileID: 1497546648}
   waitingTime: 0
 --- !u!95 &1073688092
@@ -989,7 +987,6 @@ MonoBehaviour:
   student: {fileID: 1275325929}
   studentcolor: white
   anim: {fileID: 1275325932}
-  elapsedTime: 0
   light: {fileID: 1497546648}
   waitingTime: 0
 --- !u!1 &1281362220
@@ -1105,6 +1102,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1415334655}
   m_CullTransparentMesh: 1
+--- !u!1 &1418979013 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 965411610575484330, guid: cc3dffdd6bb0f428d95b5c0a13364fc9, type: 3}
+  m_PrefabInstance: {fileID: 965411611669935560}
+  m_PrefabAsset: {fileID: 0}
+--- !u!61 &1418979018
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1418979013}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &1497546648 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 969266111799877438, guid: 8e2856d92df5e41119c728e4bed727e0, type: 3}
@@ -1461,7 +1489,6 @@ MonoBehaviour:
   student: {fileID: 1749273946}
   studentcolor: red
   anim: {fileID: 1749273949}
-  elapsedTime: 0
   light: {fileID: 1497546648}
   waitingTime: 0
 --- !u!50 &1749273951
@@ -1550,6 +1577,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 281412086}
     m_Modifications:
+    - target: {fileID: 965411610575484330, guid: cc3dffdd6bb0f428d95b5c0a13364fc9, type: 3}
+      propertyPath: m_TagString
+      value: Student
+      objectReference: {fileID: 0}
     - target: {fileID: 965411610575484331, guid: cc3dffdd6bb0f428d95b5c0a13364fc9, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -1767,11 +1798,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3545201674119585914, guid: fc86ef61c2152409c80b413cba81b376, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 500
+      value: 400
       objectReference: {fileID: 0}
     - target: {fileID: 3545201674119585914, guid: fc86ef61c2152409c80b413cba81b376, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 500
+      value: 400
       objectReference: {fileID: 0}
     - target: {fileID: 3554850733397934243, guid: fc86ef61c2152409c80b413cba81b376, type: 3}
       propertyPath: m_Name
@@ -1919,11 +1950,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4859764372561989152, guid: fc86ef61c2152409c80b413cba81b376, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -50
+      value: -111
       objectReference: {fileID: 0}
     - target: {fileID: 5679668322700227275, guid: fc86ef61c2152409c80b413cba81b376, type: 3}
       propertyPath: m_Text
-      value: YOU GOT 0 CARS ACROSS SAFELY! KEEP GOING!
+      value: 10 CARS SAVED!
       objectReference: {fileID: 0}
     - target: {fileID: 5679668322700227275, guid: fc86ef61c2152409c80b413cba81b376, type: 3}
       propertyPath: m_Color.b
@@ -2000,6 +2031,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f3820e054019de4aaeab8960b03362f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rulesObjActive: 0
+  image1: {fileID: 0}
+  image2: {fileID: 0}
+  image3: {fileID: 0}
+  playButton: {fileID: 0}
+  imageTimer: 0
 --- !u!1 &4316990026285991276 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5466706681973401505, guid: fc86ef61c2152409c80b413cba81b376, type: 3}

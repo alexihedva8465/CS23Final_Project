@@ -16,6 +16,7 @@ public class GameHandler : MonoBehaviour {
       public GameObject rewardObject;
       public static int carsAcross = 0;
       public static bool rewardTextActive = false;
+      int rewardInt = 5; 
 
       void Start(){
             sceneName = SceneManager.GetActiveScene().name;
@@ -25,11 +26,14 @@ public class GameHandler : MonoBehaviour {
 
       void FixedUpdate() {
             elapsedTime += 1 * Time.deltaTime;
+            
             if (rewardTextActive) {
                   rewardTimer += 1 * Time.deltaTime;
+                  
                   if (rewardTimer >= 3) {
                         rewardTextActive = false;
                         rewardObject.SetActive(false);
+                        rewardTimer = 0;
                   }
             }
       }
@@ -39,9 +43,14 @@ public class GameHandler : MonoBehaviour {
             carsAcross++;
             gotscore += newscore;
             updateStatsDisplay();
-            if(carsAcross % 4 == 0) {
+            if(carsAcross % rewardInt == 0) {
                   rewardObject.SetActive(true);
                   rewardTextActive = true;
+                  if(rewardInt == 6) {
+                        rewardInt++;
+                  } else if (rewardInt == 7) {
+                        rewardInt = 6;
+                  }
             }
       }
 
@@ -62,7 +71,7 @@ public class GameHandler : MonoBehaviour {
             scoreTextTemp.text = "SCORE: " + gotscore;
 
             Text rewardTextTemp = rewardText.GetComponent<Text>();
-            rewardTextTemp.text = "YOU GOT " + carsAcross + " CARS ACROSS SAFELY! KEEP GOING!";
+            rewardTextTemp.text = carsAcross + " CARS SAVED!";
       }
 
       public void killsOverflow(){
@@ -76,6 +85,11 @@ public class GameHandler : MonoBehaviour {
       public void RestartGame() {
             SceneManager.LoadScene("Tutorial");
             gotscore = 0;
+      }
+
+      public void FinalLevel() {
+            SceneManager.LoadScene("Final Level");
+            elapsedTime = 90;
       }
 
       public void QuitGame() {

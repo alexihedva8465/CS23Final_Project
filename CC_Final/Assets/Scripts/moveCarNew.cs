@@ -18,6 +18,8 @@ public class moveCarNew : MonoBehaviour {
     public AudioSource crash; 
     float timeFrustration; 
     public GameObject angryFace;
+    bool UpButtonEnabled = true;
+    bool DownButtonEnabled = true;
 
 
 
@@ -29,16 +31,26 @@ public class moveCarNew : MonoBehaviour {
         timeFrustration = UnityEngine.Random.Range(15, 20);
     }
 
-    void OnMouseOver(){
-        if (Input.GetMouseButtonDown (0)) {
+
+
+    void FixedUpdate(){
+        if ((Input.GetKey("up") || Input.GetKey("right")) && UpCar && UpButtonEnabled) {
+            UpButtonEnabled = false;
             setMoveTrue();
             timeFrustration = UnityEngine.Random.Range(15, 20);
             carObject.GetComponent<SpriteRenderer>().color = Color.white;
             angryFace.SetActive(false);
         }
-    }
 
-    void FixedUpdate(){
+        if ((Input.GetKey("down") || Input.GetKey("left")) && !UpCar && DownButtonEnabled) {
+            DownButtonEnabled = false;
+            setMoveTrue();
+            timeFrustration = UnityEngine.Random.Range(15, 20);
+            carObject.GetComponent<SpriteRenderer>().color = Color.white;
+            angryFace.SetActive(false);
+        }
+
+
         if(timeFrustration <= 8) {
              transform.position += Vector3.up * 0.1f * Time.deltaTime;
             carObject.GetComponent<SpriteRenderer>().color = Color.yellow;
@@ -55,7 +67,6 @@ public class moveCarNew : MonoBehaviour {
             }
         }
         timeFrustration -= 1 * Time.deltaTime;
-        //TODO: frustration time
         
         if(isMoving) {
             if (UpCar) {
@@ -70,10 +81,12 @@ public class moveCarNew : MonoBehaviour {
                 gameHandler.AddScore(1);
                 transform.position = new Vector3(3, -9, 0);
                 isMoving = false;
+                UpButtonEnabled = true;
         } else if (transform.position.y <= -9 && !UpCar) {
             gameHandler.AddScore(1);
             transform.position = new Vector3(-3, 9, 0);
             isMoving = false;
+            DownButtonEnabled = true;
         }
 
         if(transform.position.y <= -4 && UpCar) {
@@ -126,9 +139,11 @@ public class moveCarNew : MonoBehaviour {
 
             if (UpCar) {
                 transform.position = new Vector3(3, -9, 0);
+                UpButtonEnabled = true;
             }
             else {
                 transform.position = new Vector3(-3, 9, 0);
+                DownButtonEnabled = true;
             }
             
             carObject.SetActive(true);
