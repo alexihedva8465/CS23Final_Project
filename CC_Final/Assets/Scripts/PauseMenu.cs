@@ -13,6 +13,7 @@ public class PauseMenu : MonoBehaviour
     public static bool GameIsPaused = false;
     public GameObject pauseMenuUI;
     public GameObject pauseButtonUI;
+    public GameObject volumeMenuUI;
 
 
     // Update is called once per frame
@@ -56,10 +57,11 @@ public class PauseMenu : MonoBehaviour
     }
 
 
-    public void LoadMenu()
+    public void LoadVolumeMenu()
     {
         // Debug.Log("Loading menu.....");
-        SceneManager.LoadScene(4);
+        volumeMenuUI.SetActive(true);
+        // SceneManager.LoadScene(4);
         Time.timeScale = 1f;  //Reset timescale to normal
 
     }
