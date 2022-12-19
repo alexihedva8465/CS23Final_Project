@@ -57,7 +57,7 @@ public class levels : MonoBehaviour
         } 
         
         else {
-            Debug.Log("hey");
+            GameHandler.FinalLevelBool = true;
         }
 
         

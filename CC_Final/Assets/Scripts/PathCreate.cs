@@ -9,6 +9,8 @@ public class PathCreate : MonoBehaviour {
     // Walk speed that can be set in Inspector
     [SerializeField]
     private float moveSpeed = 2f;
+    float elapsedTime;
+    private GameHandler GameHandler;
 
     // Index of current waypoint from which Enemy walks
     // to the next one
@@ -16,16 +18,19 @@ public class PathCreate : MonoBehaviour {
 
 	// Use this for initialization
 	private void Start () {
-
+        GameHandler = GameObject.FindWithTag("GameHandler").GetComponent<GameHandler>();
         // Set position of Enemy as position of the first waypoint
         transform.position = waypoints[waypointIndex].transform.position;
 	}
 	
 	// Update is called once per frame
 	private void Update () {
+        elapsedTime = GameHandler.elapsedTime;
+     elapsedTime += 1 * Time.deltaTime;
+        if (elapsedTime >= 60) {
+            Move();
+        }
 
-        // Move Enemy
-        Move();
 	}
 
     // Method that actually make Enemy walk

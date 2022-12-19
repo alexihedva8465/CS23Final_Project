@@ -129,7 +129,7 @@ public class moveCarNew : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D Collider) {
        if (Collider.gameObject.tag == "Student") {
-       
+
             Collider.gameObject.SetActive(false);
             Collider.gameObject.transform.position = 
                 new Vector3(11, UnityEngine.Random.Range(-1, 2), 0);

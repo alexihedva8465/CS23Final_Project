@@ -36,9 +36,13 @@ public class movePerson : MonoBehaviour {
 
 
     void Update(){
+    if (GameHandler.FinalLevelBool == true) {
+        elapsedTime = 100;
+    }
+
     waitingTime -= 1 * Time.deltaTime;
     elapsedTime = GameHandler.elapsedTime;
-    elapsedTime += 1 * Time.deltaTime;
+    // elapsedTime += 1 * Time.deltaTime;
     if (light.GetComponent<SpriteRenderer>().color == Color.green 
         && studentcolor == "green"
         && waitingTime <= 0) {
@@ -86,6 +90,7 @@ public class movePerson : MonoBehaviour {
             }
         }
         if (elapsedTime >= 40) {
+            Debug.Log("this");
             if (studentcolor == "white"
             && waitingTime <= 0) {
                 student.GetComponent<SpriteRenderer>().color = new Color (230, 230, 250, 1);
@@ -102,6 +107,7 @@ public class movePerson : MonoBehaviour {
         }
         if (elapsedTime >= 60) {
             if (studentcolor == "orange") {
+                student.GetComponent<SpriteRenderer>().color = new Color (1, 1, 1, 1);
                 startAnim();
             }
         }

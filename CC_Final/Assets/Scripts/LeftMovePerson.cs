@@ -19,7 +19,8 @@ public class LeftMovePerson : MonoBehaviour {
     private GameHandler GameHandler;
 
     void Start() {
-         GameHandler = GameObject.FindWithTag("GameHandler").GetComponent<GameHandler>();
+        student.SetActive(true);
+        GameHandler = GameObject.FindWithTag("GameHandler").GetComponent<GameHandler>();
         stopAnim();
         if (studentcolor == "orange") {
             startAnim();
@@ -46,7 +47,6 @@ public class LeftMovePerson : MonoBehaviour {
                 stopAnim();
                 waitingTime = (float)UnityEngine.Random.Range(4, 10);
                 transform.position = new Vector3(12, UnityEngine.Random.Range(-1, 2), 0);
-                student.SetActive(true);
             }else {
                 startAnim();
                 transform.position -= Vector3.right * speed * Time.deltaTime;
@@ -69,7 +69,6 @@ public class LeftMovePerson : MonoBehaviour {
     if (studentcolor == "blue"
     && waitingTime <= 0) {
         student.GetComponent<SpriteRenderer>().color = new Color (0, 0, 1, 1);
-        student.SetActive(true);
             if (transform.position.x <= -6) {
             stopAnim();
             waitingTime = (float)UnityEngine.Random.Range(7, 10);
@@ -87,7 +86,6 @@ public class LeftMovePerson : MonoBehaviour {
     if (studentcolor == "white"
     && waitingTime <= 0) {
         student.GetComponent<SpriteRenderer>().color = new Color (230, 230, 250, 1);
-        student.SetActive(true);
         if (transform.position.x <= -6) {
             stopAnim();
             waitingTime = (float)UnityEngine.Random.Range(4, 10);
@@ -125,9 +123,9 @@ public class LeftMovePerson : MonoBehaviour {
     }
 
     private void stopAnim() {
-    anim.SetBool("ChangedLight", false);
+        anim.SetBool("ChangedLight", false);
     }
     private void startAnim() {
-    anim.SetBool("ChangedLight", true);
+        anim.SetBool("ChangedLight", true);
     }
 }

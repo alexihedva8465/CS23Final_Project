@@ -16,6 +16,7 @@ public class GameHandler : MonoBehaviour {
       public GameObject rewardObject;
       public static int carsAcross = 0;
       public static bool rewardTextActive = false;
+      public static bool FinalLevelBool = false;
       int rewardInt = 5; 
 
       void Start(){
@@ -83,8 +84,11 @@ public class GameHandler : MonoBehaviour {
       }
 
       public void RestartGame() {
-            SceneManager.LoadScene("Tutorial");
+            SceneManager.LoadScene("CrosswalkScene");
+            Time.timeScale = 1f;
+            elapsedTime = 0;
             gotscore = 0;
+            kills = 0;
       }
 
       public void FinalLevel() {
